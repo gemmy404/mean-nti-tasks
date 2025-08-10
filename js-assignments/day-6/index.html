@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<link rel="stylesheet" href="style.css">
+<body>
+<div class="main-container">
+    <div class="form-container">
+        <!--    <h3 style="text-align: center">Product Input</h3>-->
+        <form action="">
+            <label>Product Name: </label>
+            <input name="product-name" type="text" id="productName"/>
+
+            <label>Price: </label>
+            <input name="price" type="text" id="price"/>
+
+            <label>Description: </label>
+            <input name="description" type="text" id="description"/>
+
+            <label>Category: </label>
+            <select id="category">
+                <option value="Electronics">Electronics</option>
+                <option value="Furniture">Furniture</option>
+                <option value="Accessories">Accessories</option>
+            </select>
+
+            <button type="submit" class="submit-btn">Add Product</button>
+        </form>
+    </div>
+
+    <div class="products-info">
+
+        <div class="filtering-container">
+            <div class="search-container">
+                <input type="search" id="search" placeholder="Search Product">
+                <button type="button" class="search-btn">Search</button>
+            </div>
+            <div class="radio-container">
+                <br><h3>Filter by category: </h3>
+                <label for="Electronics">Electronics</label><br>
+                <input type="radio" id="Electronics" name="filtering-category" value="Electronics">
+                <label for="Furniture">Furniture</label><br>
+                <input type="radio" id="Furniture" name="filtering-category" value="Furniture">
+                <label for="Accessories">Accessories</label>
+                <input type="radio" id="Accessories" name="filtering-category" value="Accessories">
+            </div>
+        </div>
+
+
+        <table>
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody id="products">
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>

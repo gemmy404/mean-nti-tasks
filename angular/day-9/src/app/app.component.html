@@ -1,0 +1,106 @@
+<div class="main-container">
+  <div class="form-container">
+    <form action="">
+      <label>Product Name: </label>
+      <input name="product-name" type="text" [(ngModel)]="newProduct.name"/>
+
+      <label>Price: </label>
+      <input name="price" type="text" [(ngModel)]="newProduct.price"/>
+
+      <label>Description: </label>
+      <input name="description" type="text" [(ngModel)]="newProduct.description"/>
+
+      <label>Category: </label>
+      <select [(ngModel)]="newProduct.category" name="category" id="category">
+        <option value="Electronics">Electronics</option>
+        <option value="Furniture">Furniture</option>
+        <option value="Accessories">Accessories</option>
+      </select>
+
+      <button
+        *ngIf="!editMode"
+        type="submit"
+        class="btn btn-dark mt-3"
+        (click)="addProduct()">
+        Add Product
+      </button>
+
+      <button
+        *ngIf="editMode"
+        type="button"
+        class="btn btn-warning mt-3"
+        (click)="saveUpdatedProduct()"
+      >
+        Update Product
+      </button>
+    </form>
+  </div>
+
+  <div class=""></div>
+
+  <div>
+  <div class="filtering-container">
+    <div class="search-container">
+      <input type="search" id="search" placeholder="Search Product" [(ngModel)]="searchedProduct">
+      <button type="button" class="search-btn" (click)="searchProduct()">Search</button>
+    </div>
+    <div class="radio-container">
+      <br>
+      <h3>Filter by category: </h3>
+      <label for="Electronics">Electronics</label><br>
+      <input
+        type="radio"
+        id="Electronics"
+        name="filtering-category"
+        value="Electronics"
+        [(ngModel)]="selectedCategory"
+        (change)="filterByCategory()">
+      <label for="Furniture">Furniture</label><br>
+      <input
+        type="radio"
+        id="Furniture"
+        name="filtering-category"
+        value="Furniture"
+        [(ngModel)]="selectedCategory"
+        (change)="filterByCategory()">
+      <label for="Accessories">Accessories</label>
+      <input
+        type="radio"
+        id="Accessories"
+        name="filtering-category"
+        value="Accessories"
+        [(ngModel)]="selectedCategory"
+        (change)="filterByCategory()">
+    </div>
+  </div>
+
+  <div class="products-info">
+    <h3>Product Informations</h3>
+    <table class="table table-striped table-dark">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Category</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+        <th scope="col">Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let product of getAllProducts();">
+        <th scope="row">{{ product.id }}</th>
+        <td>{{ product.name }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.description }}</td>
+        <td>{{ product.price }}</td>
+        <td class="buttons">
+          <button class="btn btn-success" (click)="updateProduct(product.id)">Edit</button>
+          <button class="btn btn-danger" (click)="deleteProduct(product.id)">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>

@@ -13,6 +13,7 @@ import {NgIf} from "@angular/common";
 })
 export class StudentDetailsComponent implements OnInit, OnChanges, AfterViewInit {
 
+  // @Input() students: IStudent[] = [];
   @Input() studentDetails: IStudent = {
     id: 0,
     name: '',

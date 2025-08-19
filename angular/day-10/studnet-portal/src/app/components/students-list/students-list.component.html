@@ -1,4 +1,4 @@
-<div *ngFor="let student of getAllStudents()">
+<div *ngFor="let student of students">
   <app-student-card [student]="student">
     <a class="btn btn-info w-25" [routerLink]="['/students/details', student.id]"
        (click)="getStudentById(student.id)">Details</a>

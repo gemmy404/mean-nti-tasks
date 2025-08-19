@@ -16,7 +16,4 @@ export class StudentCardComponent {
     major: '',
   };
 
-  getStudentById(id: number) {
-
-  }
 }
